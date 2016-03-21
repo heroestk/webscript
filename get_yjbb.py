@@ -1,5 +1,8 @@
+# -*- coding: utf-8 -*-
+
 import csv
 import re
+import sys
 import urllib.request as ur
 from bs4 import BeautifulSoup
 
@@ -38,4 +41,8 @@ def get_yjbb_bs(code):
             writer.writerow(detail_list)
     f.close()
 
-get_yjbb_bs('300072')
+if __name__ == '__main__':
+    if (len(sys) < 2):
+        print('Please input stock code!')
+    else:
+        get_yjbb_bs('300072')
