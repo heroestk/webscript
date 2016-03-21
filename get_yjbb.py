@@ -45,4 +45,4 @@ if __name__ == '__main__':
     if (len(sys) < 2):
         print('Please input stock code!')
     else:
-        get_yjbb_bs('300072')
+        get_yjbb_bs(sys.argv[1])
