@@ -6,6 +6,7 @@ import sys
 import urllib.request as ur
 from bs4 import BeautifulSoup
 
+
 """
 从东方财富获得单只股票的历年业绩报表详细
 defjson里有所需要的全部数据
@@ -17,6 +18,8 @@ code:6位数字
 不能使用xml的解析包，因为html有时候并不是一个严格意义上的xml，例如script
 HTMLParser应该也可以,不过一开始以为直接删掉不需要的div就可以了
 """
+
+
 def get_yjbb_bs(code):
     # url -> str
     url = 'http://data.eastmoney.com/bbsj/stock{0}/yjbb.html'.format(code)
