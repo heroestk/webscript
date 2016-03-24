@@ -21,18 +21,15 @@ def get_url_contents():
     return ur.urlopen(zqwk_url).read()
 
 
-def get_deliver_list(content, last_delivered):
+def get_deliver_list(web_content, last_delivered):
     """Return chapter list we want to deliver : [number, title, href]
     """
     deliver_list = []
-    soup = BeautifulSoup(content, "html.parser")
+    soup = BeautifulSoup(web_content, "html.parser")
     site_url = soup.head.base['href']
-    print(site_url)
     ul = soup.find(name="div", class_="chapter_list")
 
-    for ele in ul.find_all('li'):
-        if '更' == ele.text.strip()[0]:
-            continue
+    for ele in ul.find_all('li')[:-1]:
         num_and_text = parse_subscribe_string(ele.text.strip())
         if int(num_and_text[0]) > last_delivered:
             if ele.a['href'][0] == '/':
